@@ -47,15 +47,15 @@ const _typography:
     fontWeight: 400,
   },
   buttonL: {
-    fontSize: "16px",
-    fontWeight: 400,
+    fontSize: "18px",
+    fontWeight: 700,
   },
   buttonM: {
-    fontSize: "14px",
-    fontWeight: 400,
+    fontSize: "16px",
+    fontWeight: 500,
   },
   buttonS: {
-    fontSize: "12px",
+    fontSize: "14px",
     fontWeight: 400,
   },
 

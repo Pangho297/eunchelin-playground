@@ -39,15 +39,15 @@ export default function Button(theme: Theme) {
       variants: [
         {
           props: { size: "small" },
-          style: { height: 30, ...theme.typography.buttonM },
+          style: { height: 34, ...theme.typography.buttonS },
         },
         {
           props: { size: "medium" },
-          style: { height: 34, ...theme.typography.buttonM },
+          style: { height: 40, ...theme.typography.buttonM },
         },
         {
           props: { size: "large" },
-          style: { height: 40, ...theme.typography.buttonM },
+          style: { height: 48, ...theme.typography.buttonL },
         },
         {
           props: { variant: "contained" },
@@ -55,6 +55,12 @@ export default function Button(theme: Theme) {
             "&,Mui-disabled": {
               border: "none !important",
             },
+          },
+        },
+        {
+          props: { variant: "outlined" },
+          style: {
+            borderColor: theme.palette.primary.main,
           },
         },
         {
@@ -133,6 +139,8 @@ export default function Button(theme: Theme) {
       ],
       styleOverrides: {
         root: {
+          borderRadius: 50,
+          textTransform: "none",
           padding: "4px 12px",
           "&.Mui-disabled": {
             backgroundColor: theme.palette.grey[100],
