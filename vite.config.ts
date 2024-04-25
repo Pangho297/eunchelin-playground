@@ -16,7 +16,7 @@ export default ({ mode }) => {
       createHtmlPlugin({
         inject: {
           data: {
-            title: "React Vite Template",
+            title: "Eunchelin",
             favicon: "/icons/vite.svg",
           },
         },
