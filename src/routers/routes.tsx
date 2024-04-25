@@ -7,6 +7,7 @@ import Login from "@/pages/login";
 import Signup from "@/pages/signup";
 import ResetPassword from "@/pages/reset-password";
 import AuthGuard from "./AuthGuarde";
+import Playground from "@/pages/playground";
 
 export const routes: RouteObject[] = [
   {
@@ -17,6 +18,8 @@ export const routes: RouteObject[] = [
     ),
 
     children: [
+      // 플레이그라운드
+      { path: PathConstants.Playground, element: <Playground /> },
       // 지도
       { path: PathConstants.Home, element: <Home /> },
       // 본인인증
