@@ -3,6 +3,7 @@ import {
   Stack,
   Typography,
   Collapse as MUICollapse,
+  ButtonBase,
 } from "@mui/material";
 import MdiIcon from "./MdiIcon";
 import { ReactNode, useState } from "react";
@@ -19,7 +20,10 @@ export default function Collapse({ title, children }: Props) {
     <Stack>
       <Stack direction="row" alignItems="center" gap={3} sx={{ p: 1.5 }}>
         <Typography variant="h2">{title}</Typography>
-        <IconButton onClick={() => setOpen((prev) => !prev)}>
+        <ButtonBase
+          onClick={() => setOpen((prev) => !prev)}
+          sx={{ p: 0.5, borderRadius: "100%" }}
+        >
           <Stack
             sx={{
               transform: open ? "rotate(-90deg)" : undefined,
@@ -28,7 +32,7 @@ export default function Collapse({ title, children }: Props) {
           >
             <MdiIcon path={mdiChevronDown} size={1.2} />
           </Stack>
-        </IconButton>
+        </ButtonBase>
       </Stack>
       <MUICollapse in={open} timeout="auto" unmountOnExit>
         {children}
