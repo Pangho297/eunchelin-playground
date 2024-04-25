@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/stores/authStore";
+import { useAuthStore } from "@/stores/loginAuthStore";
 import axios, {
   AxiosError,
   AxiosInstance,

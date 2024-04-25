@@ -4,7 +4,7 @@ import { StateCreator } from "zustand";
 import { PersistOptions, createJSONStorage, persist } from "zustand/middleware";
 import { createWithEqualityFn } from "zustand/traditional";
 
-type AuthStoreType = {
+type LoginAuthStoreType = {
   accessToken: Nullable<string>;
   refreshToken: Nullable<string>;
 
@@ -12,13 +12,13 @@ type AuthStoreType = {
   clear: () => void;
 };
 
-type PersistAuthStoreType = (
-  config: StateCreator<AuthStoreType>,
-  options: PersistOptions<AuthStoreType>
-) => StateCreator<AuthStoreType>;
+type PersistLoginAuthStoreType = (
+  config: StateCreator<LoginAuthStoreType>,
+  options: PersistOptions<LoginAuthStoreType>
+) => StateCreator<LoginAuthStoreType>;
 
-const store = createWithEqualityFn<AuthStoreType>(
-  (persist as PersistAuthStoreType)(
+const store = createWithEqualityFn<LoginAuthStoreType>(
+  (persist as PersistLoginAuthStoreType)(
     (set) => ({
       accessToken: null,
       refreshToken: null,
@@ -40,6 +40,6 @@ const store = createWithEqualityFn<AuthStoreType>(
   )
 );
 
-export const useAuthStore = <T extends keyof AuthStoreType>(keys: T[]) => {
+export const useAuthStore = <T extends keyof LoginAuthStoreType>(keys: T[]) => {
   return useShallow(store, keys);
 };
