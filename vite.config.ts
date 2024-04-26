@@ -27,6 +27,13 @@ export default ({ mode }) => {
         "@": path.resolve(__dirname, "./src"),
       },
     },
+    optimizeDeps: {
+      include: [
+        "@apollo/client/core",
+        "@apollo/client/cache",
+        "apollo.config.js",
+      ],
+    },
 
     server: {
       port: 3000,

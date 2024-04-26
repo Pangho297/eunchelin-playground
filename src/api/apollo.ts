@@ -18,7 +18,7 @@ export const isLoginVar = makeVar(Boolean(token));
 
 /** 웹소켓 설정 */
 const wsLink = new WebSocketLink({
-  uri: process.env.VITE_WS_ENDPOINT,
+  uri: `${import.meta.env.VITE_WS_ENDPOINT}`,
   options: {
     reconnect: Boolean(token) ? true : false,
     connectionParams: () => ({
@@ -29,7 +29,7 @@ const wsLink = new WebSocketLink({
 
 /** api ENDPOINT, origin 설정 */
 const httpLink = createHttpLink({
-  uri: process.env.VITE_API_BASE_URL,
+  uri: `${import.meta.env.VITE_API_BASE_URL}`,
   credentials: "same-origin",
 });
 
