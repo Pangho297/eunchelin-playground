@@ -3,6 +3,8 @@ import Collapse from "@/components/Collapse";
 import * as S from "./playground.style";
 import Input from "@/components/Input";
 import Select from "@/components/Select";
+import { CheckboxGroup, CheckLabel, RadioGroup } from "@/components/Check";
+import { useState } from "react";
 
 const dropdown = [
   { label: "안녕하세요", value: "타입은 string 입니다1" },
@@ -118,15 +120,78 @@ const playList = [
       </S.CollapseContainer>
     ),
   },
+  {
+    title: "Checkbox & Radio",
+    children: (easterEgg?: string, setEasterEgg?: any) => (
+      <S.CollapseContainer>
+        <Stack
+          sx={{
+            display: "grid",
+            gap: 2,
+            gridTemplateColumns: "repeat(3, 1fr)",
+          }}
+        >
+          <CheckLabel
+            label="제가 김창식입니다"
+            onChange={() => console.log("사실 아닙니다")}
+          />
+          <CheckLabel label="Checkbox" disabled />
+          <CheckboxGroup
+            items={[
+              { label: "Group 1", value: "group 1" },
+              { label: "Group 2", value: "group 2" },
+            ]}
+          />
+          <Stack sx={{ gridColumn: "1 / 4", alignItems: "center" }}>
+            <RadioGroup
+              items={[
+                { label: "제가 김창식이오", value: "김아무개" },
+                { label: "제가 김창식이오", value: "성진현" },
+                { label: "제가 김창식이오", value: "김수한무" },
+                { label: "제가 김창식이오", value: "김창식" },
+                { label: "제가 김창식이오", value: "이은지" },
+                { label: "제가 김창식이오", value: "백광호" },
+                { label: "제가 김창식이오", value: "말숙이" },
+              ]}
+              value={`${easterEgg}`}
+              onChange={(e) => setEasterEgg(e.target.value)}
+              errorMessage={
+                Boolean(easterEgg) && easterEgg !== "김창식"
+                  ? "틀렸소"
+                  : undefined
+              }
+            />
+          </Stack>
+          <Stack sx={{ gridColumn: "1 / 4", alignItems: "center" }}>
+            <RadioGroup
+              items={[
+                { label: "제가 김창식이오", value: "김아무개" },
+                { label: "제가 김창식이오", value: "성진현" },
+                { label: "제가 김창식이오", value: "김수한무" },
+                { label: "제가 김창식이오", value: "김창식" },
+                { label: "제가 김창식이오", value: "이은지" },
+                { label: "제가 김창식이오", value: "백광호" },
+                { label: "제가 김창식이오", value: "말숙이" },
+              ]}
+              value={""}
+              disabled
+            />
+          </Stack>
+        </Stack>
+      </S.CollapseContainer>
+    ),
+  },
 ];
 
 export default function Playground() {
+  const [easterEgg, setEasterEgg] = useState("");
+
   return (
     <Stack alignItems="center">
       <Stack sx={{ p: 3, maxWidth: "1200px", width: "100%" }}>
         {playList.map((item, i) => (
           <Collapse key={i} title={item.title}>
-            {item.children()}
+            {item.children(easterEgg, setEasterEgg)}
           </Collapse>
         ))}
       </Stack>

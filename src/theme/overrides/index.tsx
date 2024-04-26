@@ -7,12 +7,18 @@ import Button from "./Button";
 import TextField from "./TextField";
 import Select from "./Select";
 import FormHelperText from "./FormHelperText";
+import Checkbox from "./Checkbox";
+import Switch from "./Switch";
+import Radio from "./Radio";
 
 export default function componentsOverrides(theme: Theme) {
   return Object.assign(
     Button(theme),
     TextField(theme),
     Select(theme),
-    FormHelperText(theme)
+    FormHelperText(theme),
+    Checkbox(theme),
+    Radio(theme),
+    Switch(theme)
   );
 }
