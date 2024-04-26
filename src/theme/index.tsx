@@ -1,4 +1,3 @@
-import { useThemeStore } from "@/stores/themeStore";
 import {
   ThemeOptions,
   ThemeProvider as MUIThemeProvider,
@@ -9,13 +8,16 @@ import palette from "./palette";
 import typography from "./typography";
 import { CssBaseline } from "@mui/material";
 import componentsOverrides from "./overrides";
+import { useReactiveVar } from "@apollo/client";
+import { themeDirectionVar, themeModeVar } from "@/stores/themeStore";
 
 type ThemeProviderProps = {
   children: ReactNode;
 };
 
 export default function ThemeProvider({ children }: ThemeProviderProps) {
-  const { themeMode, themeDirection } = useThemeStore();
+  const themeMode = useReactiveVar(themeModeVar);
+  const themeDirection = useReactiveVar(themeDirectionVar);
 
   // 테마 구분
   const isLight = themeMode === "light";
