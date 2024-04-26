@@ -17,15 +17,15 @@ const token = localStorage.getItem("token");
 export const isLoginVar = makeVar(Boolean(token));
 
 /** 웹소켓 설정 */
-const wsLink = new WebSocketLink({
-  uri: `${import.meta.env.VITE_WS_ENDPOINT}`,
-  options: {
-    reconnect: Boolean(token) ? true : false,
-    connectionParams: () => ({
-      Authorization: `Bearer ${token}`,
-    }),
-  },
-});
+// const wsLink = new WebSocketLink({
+//   uri: `${import.meta.env.VITE_WS_ENDPOINT}`,
+//   options: {
+//     reconnect: Boolean(token) ? true : false,
+//     connectionParams: () => ({
+//       Authorization: `Bearer ${token}`,
+//     }),
+//   },
+// });
 
 /** api ENDPOINT, origin 설정 */
 const httpLink = createHttpLink({
@@ -100,17 +100,20 @@ const errorLink = onError(
  *
  * 일반 요청일 경우 authLink, httpLink
  */
-const splitLink = split(
-  ({ query }) => {
-    const definition = getMainDefinition(query);
-    return (
-      definition.kind === "OperationDefinition" &&
-      definition.operation === "subscription"
-    );
-  },
-  wsLink,
-  authLink.concat(httpLink)
-);
+// const splitLink = split(
+//   ({ query }) => {
+//     const definition = getMainDefinition(query);
+//     return (
+//       definition.kind === "OperationDefinition" &&
+//       definition.operation === "subscription"
+//     );
+//   },
+//   wsLink,
+//   authLink.concat(httpLink)
+// );
+
+/** 웹소켓 미사용 링크 */
+const link = authLink.concat(httpLink);
 
 /** 캐시 설정
  *
@@ -132,7 +135,7 @@ export const cache = new InMemoryCache({
 
 /** Apollo Client 설정 */
 export const client = new ApolloClient({
-  link: ApolloLink.from([errorLink, splitLink]),
+  link: ApolloLink.from([errorLink, link]),
   cache,
   defaultOptions: {
     watchQuery: {
