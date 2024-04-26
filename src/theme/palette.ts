@@ -6,9 +6,7 @@ const _additional: { [key in ThemeMode]: any } = {
   // 추가적인 테마 컬러 설정 시 이곳에서 사용
   // 추가하는 값은 types/theme.d.ts 파일에 타입 지정 필요
   light: {
-    example: {
-      exampleBg: "#37494a",
-    },
+    tertiary: "#b0b8c6",
   },
   dark: {},
 };
@@ -19,22 +17,6 @@ const _palette: { [key in ThemeMode]: PaletteOptions } = {
     mode: "light",
     //  primary 컬러 색상 설정
     primary: {
-      main: "#8738ff",
-      light: "#a86dff",
-      dark: "#7d28ff",
-      A100: "#f3ebff",
-      "50": "#e6d6ff",
-      "100": "#c8a3ff",
-      "200": "#bb8dff",
-      "300": "#ae78ff",
-      "400": "#a86dff",
-      "500": "#a060ff",
-      "600": "#9853ff",
-      "700": "#9046ff",
-      "800": "#8738ff",
-      "900": "#7d28ff",
-    },
-    secondary: {
       main: "#2d2a48",
       light: "#5a5482",
       dark: "#231f47",
@@ -49,6 +31,22 @@ const _palette: { [key in ThemeMode]: PaletteOptions } = {
       "700": "#3b375d",
       "800": "#2d2a48",
       "900": "#231f47",
+    },
+    secondary: {
+      main: "#8738ff",
+      light: "#a86dff",
+      dark: "#7d28ff",
+      A100: "#f3ebff",
+      "50": "#e6d6ff",
+      "100": "#c8a3ff",
+      "200": "#bb8dff",
+      "300": "#ae78ff",
+      "400": "#a86dff",
+      "500": "#a060ff",
+      "600": "#9853ff",
+      "700": "#9046ff",
+      "800": "#8738ff",
+      "900": "#7d28ff",
     },
     success: {
       main: "#1ad75d",

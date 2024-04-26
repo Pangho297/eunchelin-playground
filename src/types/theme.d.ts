@@ -7,15 +7,11 @@ declare module "@mui/material/styles" {
 
   // 추가 컬러 타입
   interface Palette {
-    example: {
-      exampleBg: string;
-    };
+    tertiary: string;
   }
 
   interface PaletteOptions {
-    example: {
-      exampleBg: string;
-    };
+    tertiary: string;
   }
 
   interface TypographyVariants {

@@ -22,7 +22,6 @@ export default function Button(theme: Theme) {
     ":hover": { backgroundColor: p.hover },
     "& .MuiTouchRipple-child": { backgroundColor: p.ripple },
   });
-
   const textButton: (p: Omit<ColorType, "main">) => CSSObject = (p) => ({
     color: p.text,
     ":hover": { backgroundColor: p.hover },
@@ -52,27 +51,21 @@ export default function Button(theme: Theme) {
         {
           props: { variant: "contained" },
           style: {
-            "&,Mui-disabled": {
+            "&.Mui-disabled": {
               border: "none !important",
             },
-          },
-        },
-        {
-          props: { variant: "outlined" },
-          style: {
-            borderColor: theme.palette.primary.main,
           },
         },
         {
           props: { variant: "text" },
           style: {
-            "&,Mui-disabled": {
+            "&.Mui-disabled": {
               backgroundColor: "transparent !important",
               border: "none !important",
             },
           },
         },
-        // primary
+        //primary
         {
           props: { variant: "contained", color: "primary" },
           style: {
@@ -111,7 +104,7 @@ export default function Button(theme: Theme) {
             ...containedButton({
               main: theme.palette.secondary.main,
               text: theme.palette.secondary.contrastText,
-              hover: theme.palette.secondary[700],
+              hover: theme.palette.secondary[600],
               ripple: theme.palette.secondary[900],
             }),
           },
