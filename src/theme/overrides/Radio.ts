@@ -7,7 +7,7 @@ export default function Radio(theme: Theme) {
         root: {
           padding: 6.5,
           "&:hover": {
-            backgroundColor: theme.palette.grey[100],
+            backgroundColor: theme.palette.action.hover,
           },
         },
       },
