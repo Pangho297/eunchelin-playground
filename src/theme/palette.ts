@@ -7,6 +7,8 @@ const _additional: { [key in ThemeMode]: any } = {
   // 추가하는 값은 types/theme.d.ts 파일에 타입 지정 필요
   light: {
     tertiary: "#b0b8c6",
+    modalBg: "#37404a",
+    modalBorderColor: "#dee2e6",
   },
   dark: {},
 };

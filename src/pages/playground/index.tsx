@@ -6,6 +6,7 @@ import PlaygroundSelect from "./PlaygroundSelect";
 import PlaygroundCheck from "./PlaygroundCheck";
 import PlaygroundToast from "./PlaygroundToast";
 import { ReactNode } from "react";
+import PlaygroundModal from "./PlaygroundModal";
 
 const playList: { title: string; children: ReactNode }[] = [
   {
@@ -27,6 +28,10 @@ const playList: { title: string; children: ReactNode }[] = [
   {
     title: "Toast",
     children: <PlaygroundToast />,
+  },
+  {
+    title: "Modal",
+    children: <PlaygroundModal />,
   },
 ];
 

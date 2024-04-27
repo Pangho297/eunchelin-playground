@@ -8,10 +8,14 @@ declare module "@mui/material/styles" {
   // 추가 컬러 타입
   interface Palette {
     tertiary: string;
+    modalBg: string;
+    modalBorderColor: string;
   }
 
   interface PaletteOptions {
     tertiary: string;
+    modalBg: string;
+    modalBorderColor: string;
   }
 
   interface TypographyVariants {
