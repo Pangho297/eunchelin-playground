@@ -29,7 +29,7 @@ export default function ConfirmModal({
         <Button variant="text" onClick={onClose} fullWidth>
           {closeText}
         </Button>
-        <Button color="secondary" onClick={onSubmit} fullWidth>
+        <Button color="primary" onClick={onSubmit} fullWidth>
           {submitText}
         </Button>
       </S.ModalFooter>
