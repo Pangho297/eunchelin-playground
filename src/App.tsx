@@ -1,11 +1,14 @@
 import { RouterProvider } from "react-router-dom";
 import router from "@/routers";
 import ThemeProvider from "./theme";
+import SnackbarProvider from "./components/Snackbar";
 
 function App() {
   return (
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <SnackbarProvider>
+        <RouterProvider router={router} />
+      </SnackbarProvider>
     </ThemeProvider>
   );
 }

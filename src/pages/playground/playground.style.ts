@@ -6,3 +6,9 @@ export const CollapseContainer = styled(Stack)(({ theme }) => ({
   borderRadius: 8,
   boxShadow: "0px 2px 10px 0px rgba(0, 0, 0, 0.2)",
 }));
+
+export const GridContainer = styled(Stack)(({ theme }) => ({
+  display: "grid",
+  gridTemplateColumns: "repeat(3, 1fr)",
+  gap: theme.spacing(2),
+}));
