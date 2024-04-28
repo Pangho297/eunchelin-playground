@@ -2,6 +2,7 @@ import {
   ThemeOptions,
   ThemeProvider as MUIThemeProvider,
   createTheme,
+  Shadows,
 } from "@mui/material/styles";
 import { ReactNode, useMemo } from "react";
 import palette from "./palette";
@@ -41,6 +42,12 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
 
       // 테마 폰트 설정
       typography,
+
+      // 테마 그림자 설정
+      shadows: [
+        ...Array(10).fill("none"), // 0시 ~ 10시 방향 빛 없음,
+        "0px 2px 10px 0px rgba(0, 0, 0, 0.10)", // 11시 방향 빛, ...shadows[10]
+      ] as Shadows,
     }),
     [themeMode, themeDirection]
   );

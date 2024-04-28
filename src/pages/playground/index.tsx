@@ -1,15 +1,20 @@
+import { ReactNode } from "react";
 import { Stack } from "@mui/material";
 import Collapse from "@/components/Collapse";
+import PlaygroundTheme from "./PlaygroundTheme";
 import PlaygroundButton from "./PlaygroundButton";
 import PlaygroundInput from "./PlaygroundInput";
 import PlaygroundSelect from "./PlaygroundSelect";
 import PlaygroundCheck from "./PlaygroundCheck";
 import PlaygroundToast from "./PlaygroundToast";
-import { ReactNode } from "react";
 import PlaygroundModal from "./PlaygroundModal";
 import PlaygroundPostcode from "./PlaygroundPostcode";
 
 const playList: { title: string; children: ReactNode }[] = [
+  {
+    title: "Theme",
+    children: <PlaygroundTheme />,
+  },
   {
     title: "Button",
     children: <PlaygroundButton />,

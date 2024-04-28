@@ -72,7 +72,7 @@ export default function Button(theme: Theme) {
             ...containedButton({
               main: theme.palette.primary.main,
               text: theme.palette.primary.contrastText,
-              hover: theme.palette.primary[700],
+              hover: theme.palette.primary[800],
               ripple: theme.palette.primary[900],
             }),
           },
@@ -82,7 +82,7 @@ export default function Button(theme: Theme) {
           style: {
             ...outlinedButton({
               main: theme.palette.primary.main,
-              hover: theme.palette.primary["A100"],
+              hover: theme.palette.primary[100],
               ripple: theme.palette.primary[50],
             }),
           },
@@ -92,7 +92,7 @@ export default function Button(theme: Theme) {
           style: {
             ...textButton({
               text: theme.palette.primary.main,
-              hover: theme.palette.primary["A100"],
+              hover: theme.palette.primary[100],
               ripple: theme.palette.primary[50],
             }),
           },
@@ -104,7 +104,7 @@ export default function Button(theme: Theme) {
             ...containedButton({
               main: theme.palette.secondary.main,
               text: theme.palette.secondary.contrastText,
-              hover: theme.palette.secondary[600],
+              hover: theme.palette.secondary[800],
               ripple: theme.palette.secondary[900],
             }),
           },
@@ -114,7 +114,7 @@ export default function Button(theme: Theme) {
           style: {
             ...outlinedButton({
               main: theme.palette.secondary.main,
-              hover: theme.palette.secondary["A100"],
+              hover: theme.palette.secondary[100],
               ripple: theme.palette.secondary[50],
             }),
           },
@@ -124,7 +124,7 @@ export default function Button(theme: Theme) {
           style: {
             ...textButton({
               text: theme.palette.secondary.main,
-              hover: theme.palette.secondary["A100"],
+              hover: theme.palette.secondary[100],
               ripple: theme.palette.secondary[50],
             }),
           },
