@@ -147,6 +147,28 @@ export default function PlaygroundTheme() {
             </Stack>
           </Stack>
         ))}
+        <Stack sx={{ gridColumn: "1 / 11" }}>
+          <Typography variant="h2">Gray</Typography>
+        </Stack>
+        {colorSchema
+          .filter((item) => item !== "main")
+          .map((item) => (
+            <Stack key={item} gap={1}>
+              <Box
+                sx={{
+                  height: "50px",
+                  borderRadius: 2,
+                  // @ts-ignore
+                  backgroundColor: `${theme.palette.grey[item]}`,
+                }}
+              />
+              <Stack direction="row" gap={1}>
+                <Typography variant="h5">{item}</Typography>
+                {/* @ts-ignore */}
+                <Typography>{theme.palette.grey[item]}</Typography>
+              </Stack>
+            </Stack>
+          ))}
       </S.GridContainer>
       <Stack gap={2}>
         <Typography variant="h2">Background & Shadow</Typography>
