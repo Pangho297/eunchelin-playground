@@ -7,6 +7,7 @@ import PlaygroundCheck from "./PlaygroundCheck";
 import PlaygroundToast from "./PlaygroundToast";
 import { ReactNode } from "react";
 import PlaygroundModal from "./PlaygroundModal";
+import PlaygroundPostcode from "./PlaygroundPostcode";
 
 const playList: { title: string; children: ReactNode }[] = [
   {
@@ -32,6 +33,10 @@ const playList: { title: string; children: ReactNode }[] = [
   {
     title: "Modal",
     children: <PlaygroundModal />,
+  },
+  {
+    title: "Daum Postcode",
+    children: <PlaygroundPostcode />,
   },
 ];
 
