@@ -335,6 +335,40 @@ export default function PlaygroundTheme() {
           </Stack>
         </Stack>
       </Stack>
+      <Stack gap={2}>
+        <Stack gap={2}>
+          <Typography variant="h2">Font</Typography>
+          <Typography variant="h3">Noto Sans KR</Typography>
+          <Typography variant="h1">
+            모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를
+            인정하는
+          </Typography>
+          <Typography variant="h1">
+            Whereas recognition of the inherent dignity
+          </Typography>
+          <Typography variant="h1" fontWeight={500}>
+            모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를
+            인정하는
+          </Typography>
+          <Typography variant="h1" fontWeight={500}>
+            Whereas recognition of the inherent dignity
+          </Typography>
+          <Typography variant="h1" fontWeight={400}>
+            모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를
+            인정하는
+          </Typography>
+          <Typography variant="h1" fontWeight={400}>
+            Whereas recognition of the inherent dignity
+          </Typography>
+          <Typography variant="h1" fontWeight={300}>
+            모든 인류 구성원의 천부의 존엄성과 동등하고 양도할 수 없는 권리를
+            인정하는
+          </Typography>
+          <Typography variant="h1" fontWeight={300}>
+            Whereas recognition of the inherent dignity
+          </Typography>
+        </Stack>
+      </Stack>
     </S.CollapseContainer>
   );
 }
