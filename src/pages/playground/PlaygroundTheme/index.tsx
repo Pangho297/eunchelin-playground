@@ -16,8 +16,6 @@ export default function PlaygroundTheme() {
     "100",
   ];
 
-  console.log(theme.palette);
-
   return (
     <S.CollapseContainer gap={3}>
       <S.GridContainer sx={{ gridTemplateColumns: "repeat(10, 1fr)" }}>

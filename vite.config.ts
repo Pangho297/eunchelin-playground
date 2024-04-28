@@ -14,10 +14,12 @@ export default ({ mode }) => {
       react(),
       svgr(), // NOTE:: 4버전부터 exportAsDefault값 사라짐. 파일 임포트 시, *.svg?react 형태로 불러와야함
       createHtmlPlugin({
+        minify: true,
         inject: {
           data: {
             title: "Eunchelin",
             favicon: "/icons/vite.svg",
+            kakaoJavascriptKey: process.env.VITE_KAKAO_JAVASCRIPT_KEY,
           },
         },
       }),
