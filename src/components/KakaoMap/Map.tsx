@@ -8,7 +8,7 @@ import {
 } from "react";
 import * as K from "react-kakao-maps-sdk";
 
-interface MapProps extends PropsWithChildren {
+type MapProps = {
   id?: string;
   /** 지도 중심 좌표 */
   center: {
@@ -18,10 +18,11 @@ interface MapProps extends PropsWithChildren {
   /** 지도 확대 축소 정도 */
   level?: number;
   sx?: SxProps<Theme>;
-}
+} & PropsWithChildren &
+  K.MapProps;
 
 export default forwardRef(function Map(
-  { children, id = "kakao-map", center, level = 8, sx }: MapProps,
+  { children, id = "kakao-map", center, level = 8, sx, ...rest }: MapProps,
   ref: ForwardedRef<kakao.maps.Map>
 ) {
   return (
@@ -34,6 +35,7 @@ export default forwardRef(function Map(
         style={{ width: "100%", height: "100%" }}
         level={level}
         isPanto
+        {...rest}
       >
         {children}
       </K.Map>

@@ -27,7 +27,15 @@ export default function PlaygroundMap() {
     <S.CollapseContainer gap={2}>
       <Stack sx={{ height: "800px" }}>
         {center ? (
-          <Map ref={mapRef} center={center} level={level} />
+          <Map
+            ref={mapRef}
+            center={center}
+            level={level}
+            onZoomChanged={(target) => {
+              const level = target.getLevel();
+              setLevel(level);
+            }}
+          />
         ) : (
           <Stack
             justifyContent="center"
