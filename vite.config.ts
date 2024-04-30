@@ -19,7 +19,6 @@ export default ({ mode }) => {
           data: {
             title: "Eunchelin",
             favicon: "/icons/vite.svg",
-            kakaoJavascriptKey: process.env.VITE_KAKAO_JAVASCRIPT_KEY,
           },
         },
       }),

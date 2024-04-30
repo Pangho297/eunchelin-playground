@@ -3,6 +3,7 @@ import { useDaumPostcodePopup, Address } from "react-daum-postcode";
 import * as S from "../playground.style";
 import { useState } from "react";
 import Input from "@/components/Input";
+import postcodeConfig from "@/utils/postcodeConfig";
 
 /** 다음 카카오에서 제공하는 우편번호 검색 서비스
  *
@@ -45,12 +46,7 @@ export default function PlaygroundPostcode() {
   const handleClick = () => {
     open({
       onComplete: handleComplete,
-      width: 500, // 팝업창 가로 너비
-      height: 500, // 팝업창 세로 높이
-      top: window.innerHeight / 2 - 250, // 팝업창 y좌표 (페이지 영역 절반 - 팝업창 절반)
-      left: window.innerWidth / 2 - 250, // 팝업창 x좌표 (페이지 영역 절반 - 팝업창 절반)
-      popupTitle: "은슐랭 주소검색", // 팝업 title
-      popupKey: "eunchelin-address-popup", // 키가 없는 경우 매 클릭 시 팝업 생성
+      ...postcodeConfig,
     });
   };
 
