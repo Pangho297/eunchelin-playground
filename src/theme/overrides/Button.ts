@@ -143,5 +143,14 @@ export default function Button(theme: Theme) {
         },
       },
     },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          ":hover": {
+            backgroundColor: theme.palette.action.hover,
+          },
+        },
+      },
+    },
   } as Components;
 }

@@ -21,6 +21,15 @@ export default function TextField(theme: Theme) {
             "&.MuiInputBase-multiline": {
               height: "auto",
             },
+            "& .MuiButtonBase-root": {
+              width: 28,
+              height: 28,
+              padding: theme.spacing(0.5),
+              "& .MuiSvgIcon-root": {
+                width: 20,
+                height: 20,
+              },
+            },
           },
         },
       },
