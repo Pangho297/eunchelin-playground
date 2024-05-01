@@ -1,9 +1,8 @@
 const PathConstants = {
   Home: "/",
-  Login: "/login",
-  Signup: "/signup",
-  Auth: "/auth",
   ResetPassword: "/reset-password",
+  MyPage: "/my-page",
+  MyGroup: "/my-group",
   Playground: "/playground",
 };
 

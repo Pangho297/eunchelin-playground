@@ -2,8 +2,9 @@ import { ModalPropsType } from "@/stores/modalStore";
 import { ModalS } from "@/components/Modal/ModalContainer";
 import * as S from "./Confirm.style";
 import { Box, Button, Zoom } from "@mui/material";
-import { ReactNode } from "react";
+import { ReactNode, useRef } from "react";
 import { TransitionGroup } from "react-transition-group";
+import { useCloseClickOutside } from "@/hooks/useCloseClickOutside";
 
 export interface ConfirmModalProps extends ModalPropsType {
   message: ReactNode;
@@ -42,10 +43,10 @@ export default function ConfirmModal({
         <Zoom>
           <ModalS.ModalBody>
             {/* 제목 */}
-            <ModalS.ModalTitle sx={{ borderBottom: "none" }}>
+            {/* <ModalS.ModalTitle sx={{ borderBottom: "none" }}>
               <Box />
               <ModalS.CloseButton onClick={onClose} />
-            </ModalS.ModalTitle>
+            </ModalS.ModalTitle> */}
             {/* 내용 */}
             <ModalS.ModalContent sx={{ borderBottom: "none" }}>
               {Content()}

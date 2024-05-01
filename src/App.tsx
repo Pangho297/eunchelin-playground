@@ -7,6 +7,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { koKR } from "@mui/x-date-pickers/locales/koKR";
 import "dayjs/locale/ko";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
   return (
@@ -19,8 +20,10 @@ function App() {
         }
       >
         <SnackbarProvider>
-          <RouterProvider router={router} />
-          <ModalContainer />
+          <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+            <RouterProvider router={router} />
+            <ModalContainer />
+          </GoogleOAuthProvider>
         </SnackbarProvider>
       </LocalizationProvider>
     </ThemeProvider>
