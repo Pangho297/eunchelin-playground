@@ -1,6 +1,7 @@
 import { Stack } from "@mui/material";
 import { Outlet, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import Header from "@/components/Header";
 
 export default function DefaultLayout() {
   const { pathname } = useLocation();
@@ -23,16 +24,20 @@ export default function DefaultLayout() {
   };
 
   return (
-    <motion.div
-      key={pathname}
-      initial="initial"
-      animate="in"
-      variants={pageVariants}
-      transition={pageTransition}
-    >
-      <Stack sx={{ height: "100dvh" }}>
-        <Outlet />
-      </Stack>
-    </motion.div>
+    <Stack sx={{ height: "100dvh" }}>
+      <Header>
+        <motion.div
+          key={pathname}
+          initial="initial"
+          animate="in"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
+          <Stack>
+            <Outlet />
+          </Stack>
+        </motion.div>
+      </Header>
+    </Stack>
   );
 }

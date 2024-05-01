@@ -18,6 +18,7 @@ export const ModalWrapper = styled(Paper)(({ theme }) => ({
 }));
 
 export const ModalBody = styled(Box)(({ theme }) => ({
+  position: "relative",
   display: "flex",
   flexDirection: "column",
   width: "fit-content",
@@ -32,7 +33,6 @@ export const ModalTitle = styled(Box)(({ theme }) => ({
   alignItems: "center",
   padding: theme.spacing(2),
   borderRadius: "8px 8px 0 0",
-  borderBottom: "1px solid var(--border_primary)",
   backgroundColor: "white",
   ".MuiIconButton-root": {
     padding: 0,
@@ -43,8 +43,8 @@ export const ModalTitle = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ModalContent = styled(Box)(({}) => ({
-  padding: "0 16px 16px 16px",
+export const ModalContent = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(2),
 }));
 
 export const ModalFooter = styled(Box)(({}) => ({
@@ -53,8 +53,11 @@ export const ModalFooter = styled(Box)(({}) => ({
 
 export const CloseButton = styled((props: IconButtonProps) => (
   <IconButton {...props} disableRipple>
-    <MdiIcon path={mdiClose} size={1} color="black" />
+    <MdiIcon path={mdiClose} size={1} />
   </IconButton>
 ))(() => ({
+  position: "absolute",
+  top: 16,
+  right: 16,
   padding: 0,
 }));

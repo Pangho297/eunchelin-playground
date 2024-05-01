@@ -1,7 +1,7 @@
 import { modalCloseVar, ModalPropsType, modalsVar } from "@/stores/modalStore";
 import { useReactiveVar } from "@apollo/client";
 import { Nullable } from "@/types/common";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import * as ModalS from "./DefaultModal.style";
 

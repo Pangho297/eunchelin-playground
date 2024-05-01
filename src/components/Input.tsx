@@ -22,6 +22,7 @@ export default function Input({
       {...rest}
       sx={(theme) => ({
         bgcolor: "common.white",
+
         ".MuiInputBase-multiline": {
           padding: 0,
         },

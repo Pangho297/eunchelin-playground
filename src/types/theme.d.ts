@@ -10,12 +10,16 @@ declare module "@mui/material/styles" {
     tertiary: string;
     modalBg: string;
     modalBorderColor: string;
+    mainText: string;
+    gradient: string;
   }
 
   interface PaletteOptions {
     tertiary: string;
     modalBg: string;
     modalBorderColor: string;
+    mainText: string;
+    gradient: string;
   }
 
   interface TypographyVariants {

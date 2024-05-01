@@ -15,10 +15,10 @@ export default function Button(theme: Theme) {
     "& .MuiTouchRipple-child": { backgroundColor: p.ripple },
   });
 
-  const outlinedButton: (p: Omit<ColorType, "text">) => CSSObject = (p) => ({
+  const outlinedButton: (p: ColorType) => CSSObject = (p) => ({
     border: `1px solid ${p.main}`,
     backgroundColor: theme.palette.common.white,
-    color: p.main,
+    color: p.text,
     ":hover": { backgroundColor: p.hover },
     "& .MuiTouchRipple-child": { backgroundColor: p.ripple },
   });
@@ -73,7 +73,7 @@ export default function Button(theme: Theme) {
               main: theme.palette.primary.main,
               text: theme.palette.primary.contrastText,
               hover: theme.palette.primary[800],
-              ripple: theme.palette.primary[900],
+              ripple: theme.palette.primary[50],
             }),
           },
         },
@@ -82,6 +82,7 @@ export default function Button(theme: Theme) {
           style: {
             ...outlinedButton({
               main: theme.palette.primary.main,
+              text: theme.palette.primary.contrastText,
               hover: theme.palette.primary[100],
               ripple: theme.palette.primary[50],
             }),
@@ -91,7 +92,7 @@ export default function Button(theme: Theme) {
           props: { variant: "text", color: "primary" },
           style: {
             ...textButton({
-              text: theme.palette.primary.main,
+              text: theme.palette.primary.contrastText,
               hover: theme.palette.primary[100],
               ripple: theme.palette.primary[50],
             }),
@@ -114,6 +115,7 @@ export default function Button(theme: Theme) {
           style: {
             ...outlinedButton({
               main: theme.palette.secondary.main,
+              text: theme.palette.secondary.contrastText,
               hover: theme.palette.secondary[100],
               ripple: theme.palette.secondary[50],
             }),
@@ -149,6 +151,13 @@ export default function Button(theme: Theme) {
           ":hover": {
             backgroundColor: theme.palette.action.hover,
           },
+        },
+      },
+    },
+    MuiButtonBase: {
+      styleOverrides: {
+        root: {
+          fontFamily: "'Noto Sans KR', serif",
         },
       },
     },
