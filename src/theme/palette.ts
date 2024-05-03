@@ -46,7 +46,7 @@ const _palette: { [key in ThemeMode]: PaletteOptions } = {
       "700": "#4870b6",
       "800": "#3f60a5",
       "900": "#314387",
-      contrastText: "#16181d",
+      contrastText: "#f2f2f2",
     },
     success: {
       main: "#7edc9c",

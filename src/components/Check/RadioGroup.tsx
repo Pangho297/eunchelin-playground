@@ -17,6 +17,14 @@ interface RadioGroupProps {
   selectedRows?: string[];
   disabled?: boolean;
   errorMessage?: string;
+  color?:
+    | "primary"
+    | "secondary"
+    | "error"
+    | "info"
+    | "success"
+    | "warning"
+    | "default";
   onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -26,6 +34,7 @@ export default function _CheckboxGroup({
   value,
   disabled,
   errorMessage,
+  color,
   onChange,
 }: RadioGroupProps) {
   return (
@@ -44,7 +53,7 @@ export default function _CheckboxGroup({
             key={item.value}
             name={item.value}
             value={item.value}
-            control={<Radio size="small" />}
+            control={<Radio size="small" color={color} />}
             label={item.label}
             disabled={disabled}
           />

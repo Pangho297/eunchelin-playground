@@ -91,10 +91,10 @@ export default function Select({
             },
           }}
         >
-          <SelectButton onClick={handleSelectAll}>
+          <SelectButton color="secondary" onClick={handleSelectAll}>
             <Typography>전체선택</Typography>
           </SelectButton>
-          <SelectButton onClick={handleDeselectAll}>
+          <SelectButton color="secondary" onClick={handleDeselectAll}>
             <Typography>전체해제</Typography>
           </SelectButton>
         </MenuItem>
@@ -119,7 +119,7 @@ const SelectButton = styled(Button)(({ theme }) => ({
   padding: theme.spacing(1),
   ">.MuiTypography-root": {
     ...theme.typography.caption,
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.secondary.contrastText,
   },
 }));
 
