@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Resolver } from "react-hook-form";
 import * as Yup from "yup";
 
-export type FormShape = "loginForm" | "signupForm";
+export type FormShape = "loginForm" | "signupForm" | "findPasswordForm";
 
 const formShape: { [schema in FormShape]: any } = {
   loginForm: {
@@ -13,7 +13,10 @@ const formShape: { [schema in FormShape]: any } = {
   },
   signupForm: {
     email: Yup.string()
-      .email("이메일 형식으로 입력해 주세요")
+      .matches(
+        /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        "이메일 형식으로 입력해 주세요"
+      )
       .required("아이디를 입력해 주세요"),
     emailVerify: Yup.string().required("이메일 인증을 진행해 주세요"),
     password: Yup.string()
@@ -27,6 +30,14 @@ const formShape: { [schema in FormShape]: any } = {
       .required("비밀번호를 확인해 주세요"),
     nickname: Yup.string().required("닉네임을 입력해 주세요"),
     authToken: Yup.string().required("이메일 인증번호를 입력해 주세요"),
+  },
+  findPasswordForm: {
+    email: Yup.string()
+      .matches(
+        /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        "이메일 형식으로 입력해 주세요"
+      )
+      .required("이메일 주소를 입력해 주세요"),
   },
 };
 

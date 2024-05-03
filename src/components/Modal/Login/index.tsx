@@ -18,6 +18,7 @@ import Input from "@/components/Input";
 import { GoogleLogin } from "@react-oauth/google";
 import useModal from "@/hooks/useModal";
 import Signup from "../Signup";
+import FindPassword from "../FIndPassword";
 
 export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
   const modalRef = useRef<HTMLDivElement>(null);
@@ -45,6 +46,11 @@ export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
   const handleSignup = () => {
     onClose?.();
     openModal(Signup);
+  };
+
+  const handleFindPassword = () => {
+    onClose?.();
+    openModal(FindPassword);
   };
 
   const Content = () => {
@@ -119,7 +125,11 @@ export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
             gap={1}
           >
             <ButtonBase type="button" disableRipple>
-              <Typography variant="bodySS" sx={{ color: "grey.400" }}>
+              <Typography
+                variant="bodySS"
+                sx={{ color: "grey.400" }}
+                onClick={handleFindPassword}
+              >
                 비밀번호 찾기
               </Typography>
             </ButtonBase>

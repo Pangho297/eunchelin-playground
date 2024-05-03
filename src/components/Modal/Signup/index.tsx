@@ -1,8 +1,7 @@
 import { TransitionGroup } from "react-transition-group";
 import { ModalS } from "../ModalContainer";
 import { Button, Collapse, Stack, Typography, Zoom } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
-import { useCloseClickOutside } from "@/hooks/useCloseClickOutside";
+import { useEffect, useState } from "react";
 import { ModalPropsType } from "@/stores/modalStore";
 import { Controller, useForm } from "react-hook-form";
 import Input from "@/components/Input";
@@ -15,11 +14,9 @@ import Login from "../Login";
 
 dayjs.extend(duration);
 
-export default function Signup({ onClose = () => {} }: ModalPropsType) {
+export default function Signup({ onClose }: ModalPropsType) {
   const [startEmailVerify, setStartEmailVerify] = useState<boolean>(false);
   const [verifyEmailTime, setVerifyEmailTime] = useState<number>(600);
-  const modalRef = useRef<HTMLDivElement>(null);
-  useCloseClickOutside(modalRef, onClose);
   const emailRegex = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
   const { openModal } = useModal();
@@ -30,6 +27,7 @@ export default function Signup({ onClose = () => {} }: ModalPropsType) {
     setValue,
     clearErrors,
     handleSubmit,
+    reset,
     formState: { isValid },
   } = useForm({
     mode: "onChange",
@@ -72,6 +70,11 @@ export default function Signup({ onClose = () => {} }: ModalPropsType) {
     setStartEmailVerify(false);
     setVerifyEmailTime(0);
     setValue("emailVerify", "");
+  };
+
+  const handleCancel = () => {
+    onClose?.();
+    openModal(Login);
   };
 
   const onSubmit = handleSubmit((data) => {
@@ -267,9 +270,19 @@ export default function Signup({ onClose = () => {} }: ModalPropsType) {
               </Stack>
             </Collapse>
           </Stack>
-          <Button type="submit" disabled={!isValid}>
-            회원가입
-          </Button>
+          <Stack direction="row" gap={1}>
+            <Button
+              variant="text"
+              type="button"
+              fullWidth
+              onClick={handleCancel}
+            >
+              취소
+            </Button>
+            <Button fullWidth type="submit" disabled={!isValid}>
+              회원가입
+            </Button>
+          </Stack>
         </Stack>
       </ModalS.ContentWrapper>
     );
@@ -279,7 +292,7 @@ export default function Signup({ onClose = () => {} }: ModalPropsType) {
     <ModalS.ModalWrapper>
       <TransitionGroup>
         <Zoom>
-          <ModalS.ModalBody ref={modalRef}>
+          <ModalS.ModalBody>
             <ModalS.ModalContent>{Content()}</ModalS.ModalContent>
           </ModalS.ModalBody>
         </Zoom>
