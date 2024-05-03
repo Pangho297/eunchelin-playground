@@ -7,7 +7,10 @@ export type FormShape = "loginForm" | "signupForm" | "findPasswordForm";
 const formShape: { [schema in FormShape]: any } = {
   loginForm: {
     email: Yup.string()
-      .email("이메일 형식으로 입력해 주세요")
+      .matches(
+        /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        "이메일 형식으로 입력해 주세요"
+      )
       .required("아이디를 입력해 주세요"),
     password: Yup.string().required("비밀번호를 입력해 주세요"),
   },

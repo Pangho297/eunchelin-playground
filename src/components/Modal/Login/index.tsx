@@ -19,6 +19,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import useModal from "@/hooks/useModal";
 import Signup from "../Signup";
 import FindPassword from "../FIndPassword";
+import { useSnackbar } from "notistack";
 
 export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
   const modalRef = useRef<HTMLDivElement>(null);
@@ -29,7 +30,7 @@ export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
     handleSubmit,
     formState: { isValid },
   } = useForm<LoginRequestModel>({
-    mode: "onSubmit",
+    mode: "onChange",
     defaultValues: {
       email: "",
       password: "",
@@ -38,9 +39,11 @@ export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
   });
 
   const { openModal } = useModal();
+  const { enqueueSnackbar } = useSnackbar();
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+    enqueueSnackbar("FIXME: 로그인 api 추가 필요", { variant: "error" });
   });
 
   const handleSignup = () => {
@@ -77,7 +80,7 @@ export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
               우리끼리 맛집 공유
             </Typography>
           </Stack>
-          <Stack gap={2}>
+          <Stack component="form" onSubmit={onSubmit} gap={2}>
             <Stack gap={0.5}>
               <Typography variant="bodySS">이메일</Typography>
               <Controller
@@ -97,9 +100,10 @@ export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
               <Typography variant="bodySS">비밀번호</Typography>
               <Controller
                 control={control}
-                name="email"
+                name="password"
                 render={({ field, fieldState: { error } }) => (
                   <Input
+                    type="password"
                     placeholder="비밀번호를 입력해 주세요"
                     value={field.value}
                     onChange={field.onChange}
@@ -108,7 +112,9 @@ export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
                 )}
               />
             </Stack>
-            <Button type="submit">로그인</Button>
+            <Button type="submit" disabled={!isValid}>
+              로그인
+            </Button>
           </Stack>
           <Divider orientation="horizontal" />
           <GoogleLogin
