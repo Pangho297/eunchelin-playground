@@ -11,6 +11,7 @@ import Checkbox from "./Checkbox";
 import Switch from "./Switch";
 import Radio from "./Radio";
 import DatePicker from "./DatePicker";
+import Typography from "./Typhograpy";
 
 export default function componentsOverrides(theme: Theme) {
   return Object.assign(
@@ -21,6 +22,7 @@ export default function componentsOverrides(theme: Theme) {
     Checkbox(theme),
     Radio(theme),
     Switch(theme),
-    DatePicker(theme)
+    DatePicker(theme),
+    Typography(theme)
   );
 }
