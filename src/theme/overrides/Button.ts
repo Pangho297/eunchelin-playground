@@ -72,8 +72,8 @@ export default function Button(theme: Theme) {
             ...containedButton({
               main: theme.palette.primary.main,
               text: theme.palette.primary.contrastText,
-              hover: theme.palette.primary[800],
-              ripple: theme.palette.primary[50],
+              hover: theme.palette.primary[700],
+              ripple: theme.palette.primary[900],
             }),
           },
         },

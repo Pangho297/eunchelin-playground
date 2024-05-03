@@ -13,18 +13,22 @@ const StyledSnackbarProvider = styled(NotistackSnackbarProvider)(
   ({ theme }) => ({
     "&.notistack-MuiContent-default": {
       backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
     },
     "&.notistack-MuiContent-success": {
       backgroundColor: theme.palette.success.main,
+      color: theme.palette.success.contrastText,
     },
     "&.notistack-MuiContent-error": {
       backgroundColor: theme.palette.error.main,
     },
     "&.notistack-MuiContent-warning": {
       backgroundColor: theme.palette.warning.main,
+      color: theme.palette.warning.contrastText,
     },
     "&.notistack-MuiContent-info": {
       backgroundColor: theme.palette.info.main,
+      color: theme.palette.info.contrastText,
     },
   })
 );

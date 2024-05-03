@@ -28,7 +28,7 @@ export default function Header({ children }: { children: ReactNode }) {
         sx={(theme) => ({
           px: 3,
           py: 2,
-          background: theme.palette.gradient,
+          backgroundColor: theme.palette.primary[700],
         })}
       >
         <Link href={PathConstants.Home} underline="none">

@@ -119,7 +119,7 @@ const SelectButton = styled(Button)(({ theme }) => ({
   padding: theme.spacing(1),
   ">.MuiTypography-root": {
     ...theme.typography.caption,
-    color: "white",
+    color: theme.palette.primary.contrastText,
   },
 }));
 

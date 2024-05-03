@@ -1,5 +1,5 @@
 import { Box, IconButton, IconButtonProps, Paper, Stack } from "@mui/material";
-import { alpha, styled } from "@mui/material/styles";
+import { alpha, styled, Theme } from "@mui/material/styles";
 import MdiIcon from "../MdiIcon";
 import { mdiClose } from "@mdi/js";
 
@@ -68,10 +68,10 @@ export const CloseButton = styled((props: IconButtonProps) => (
   padding: 0,
 }));
 
-export const ContentWrapper = styled(Stack)(
-  ({ minWidth, maxWidth }: ContentWrapperProps) => ({
-    minWidth,
-    maxWidth,
-    whiteSpace: "pre-line",
-  })
-);
+export const ContentWrapper = styled(Stack, {
+  shouldForwardProp: (props) => props !== "minWidth" && props !== "maxWidth",
+})<ContentWrapperProps>(({ minWidth, maxWidth }) => ({
+  minWidth,
+  maxWidth,
+  whiteSpace: "pre-line",
+}));

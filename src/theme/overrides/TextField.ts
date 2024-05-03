@@ -9,15 +9,15 @@ export default function TextField(theme: Theme) {
       styleOverrides: {
         root: {
           "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              borderColor: theme.palette.grey[200],
-            },
-            "&:hover fieldset": {
-              borderColor: theme.palette.grey[200],
-            },
-            "&.Mui-focused fieldset": {
-              borderColor: theme.palette.grey[200],
-            },
+            // "& fieldset": {
+            //   borderColor: theme.palette.grey[200],
+            // },
+            // "&:hover fieldset": {
+            //   borderColor: theme.palette.grey[200],
+            // },
+            // "&.Mui-focused fieldset": {
+            //   borderColor: theme.palette.grey[200],
+            // },
           },
 
           ".MuiInputBase-root": {
