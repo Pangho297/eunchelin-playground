@@ -1,7 +1,12 @@
-import { Box, IconButton, IconButtonProps, Paper } from "@mui/material";
+import { Box, IconButton, IconButtonProps, Paper, Stack } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
 import MdiIcon from "../MdiIcon";
 import { mdiClose } from "@mdi/js";
+
+type ContentWrapperProps = {
+  minWidth?: string | number;
+  maxWidth?: string | number;
+};
 
 export const ModalWrapper = styled(Paper)(({ theme }) => ({
   position: "fixed",
@@ -25,6 +30,7 @@ export const ModalBody = styled(Box)(({ theme }) => ({
   height: "fit-content",
   borderRadius: 8,
   backgroundColor: theme.palette.common.white,
+  boxShadow: theme.shadows[10],
 }));
 
 export const ModalTitle = styled(Box)(({ theme }) => ({
@@ -61,3 +67,11 @@ export const CloseButton = styled((props: IconButtonProps) => (
   right: 16,
   padding: 0,
 }));
+
+export const ContentWrapper = styled(Stack)(
+  ({ minWidth, maxWidth }: ContentWrapperProps) => ({
+    minWidth,
+    maxWidth,
+    whiteSpace: "pre-line",
+  })
+);
