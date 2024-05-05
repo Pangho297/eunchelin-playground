@@ -16,7 +16,15 @@ export default function MapWrapper({
   children,
 }: MapWrapperProps) {
   return (
-    <Stack id={id} sx={{ position: "relative", width, height, ...sx }}>
+    <Stack
+      id={id}
+      sx={{
+        position: "relative",
+        width,
+        height,
+        ...sx,
+      }}
+    >
       {children}
     </Stack>
   );
