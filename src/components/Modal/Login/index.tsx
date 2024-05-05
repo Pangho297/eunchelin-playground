@@ -20,6 +20,7 @@ import useModal from "@/hooks/useModal";
 import Signup from "../Signup";
 import FindPassword from "../FIndPassword";
 import { useSnackbar } from "notistack";
+import FormFieldWrapper from "@/components/FormFieldWrapper";
 
 export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
   const modalRef = useRef<HTMLDivElement>(null);
@@ -81,8 +82,7 @@ export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
             </Typography>
           </Stack>
           <Stack component="form" onSubmit={onSubmit} gap={2}>
-            <Stack gap={0.5}>
-              <Typography variant="bodySS">이메일</Typography>
+            <FormFieldWrapper title="아이디">
               <Controller
                 control={control}
                 name="email"
@@ -95,9 +95,8 @@ export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
                   />
                 )}
               />
-            </Stack>
-            <Stack gap={0.5}>
-              <Typography variant="bodySS">비밀번호</Typography>
+            </FormFieldWrapper>
+            <FormFieldWrapper title="비밀번호">
               <Controller
                 control={control}
                 name="password"
@@ -111,7 +110,7 @@ export default function Login({ onClose = () => {}, modalId }: ModalPropsType) {
                   />
                 )}
               />
-            </Stack>
+            </FormFieldWrapper>
             <Button type="submit" disabled={!isValid}>
               로그인
             </Button>

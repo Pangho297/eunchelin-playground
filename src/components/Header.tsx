@@ -12,11 +12,13 @@ import { mdiSilverwareForkKnife } from "@mdi/js";
 import PathConstants from "@/routers/pathConstants";
 import useModal from "@/hooks/useModal";
 import Login from "./Modal/Login";
+import { useNavigate } from "react-router-dom";
 
 export default function Header({ children }: { children: ReactNode }) {
   const [token, setToken] = useState(false);
 
   const { openModal } = useModal();
+  const navigate = useNavigate();
 
   const theme = useTheme();
   return (
@@ -43,7 +45,10 @@ export default function Header({ children }: { children: ReactNode }) {
             />
           </Stack>
         </Link>
-        <Stack>
+        <Stack direction="row" gap={2}>
+          <Button onClick={() => navigate("/playground")}>
+            Go to Playground
+          </Button>
           {token ? (
             <Stack direction="row" gap={2}>
               <Link>

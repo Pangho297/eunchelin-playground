@@ -5,6 +5,7 @@ import * as K from "react-kakao-maps-sdk";
 
 import Drawer from "@/components/Drawer";
 import MapWrapper from "@/components/MapWrapper";
+import Sidebar from "./Sidebar";
 
 export default function Home() {
   const [center, setCenter] = useState<{ lat: number; lng: number }>();
@@ -40,13 +41,12 @@ export default function Home() {
           <Stack
             sx={{
               width: "100%",
+              height: "100%",
               bgcolor: "common.white",
               p: 2,
             }}
           >
-            <Button onClick={() => navigate("/playground")}>
-              Go to Playground
-            </Button>
+            <Sidebar />
           </Stack>
         </Drawer>
         <MapWrapper width="100%" height="calc(100dvh - 88px)">

@@ -15,7 +15,7 @@ type DrawerProps = {
 
 export default function Drawer({
   children,
-  width = 350,
+  width = 410,
   height,
   dir = "left",
   defaultOpen = true,
@@ -42,7 +42,7 @@ export default function Drawer({
           width={width}
           dir={dir}
         >
-          {children}
+          {open ? children : null}
         </S.CustomDrawer>
         <S.SwipeButton
           onClick={toggle}

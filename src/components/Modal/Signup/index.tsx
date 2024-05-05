@@ -11,6 +11,7 @@ import duration from "dayjs/plugin/duration";
 import getResolverBySchemaName from "@/utils/formResolver";
 import useModal from "@/hooks/useModal";
 import Login from "../Login";
+import FormFieldWrapper from "@/components/FormFieldWrapper";
 
 dayjs.extend(duration);
 
@@ -142,8 +143,7 @@ export default function Signup({ onClose }: ModalPropsType) {
             </Typography>
           </Stack>
           <Stack gap={2}>
-            <Stack gap={0.5}>
-              <Typography variant="bodySS">이메일</Typography>
+            <FormFieldWrapper title="이메일" require>
               <Stack direction="row" gap={1}>
                 <Controller
                   control={control}
@@ -179,9 +179,8 @@ export default function Signup({ onClose }: ModalPropsType) {
                     : "인증번호 발송"}
                 </Button>
               </Stack>
-            </Stack>
-            <Stack gap={0.5}>
-              <Typography variant="bodySS">이메일 인증번호</Typography>
+            </FormFieldWrapper>
+            <FormFieldWrapper title="이메일 인증번호" require>
               <Stack direction="row" gap={1}>
                 <Stack sx={{ position: "relative", width: "100%" }}>
                   <Controller
@@ -217,11 +216,10 @@ export default function Signup({ onClose }: ModalPropsType) {
                   확인
                 </Button>
               </Stack>
-            </Stack>
+            </FormFieldWrapper>
             <Collapse in={Boolean(watch("authToken"))}>
               <Stack gap={2}>
-                <Stack gap={0.5}>
-                  <Typography variant="bodySS">비밀번호</Typography>
+                <FormFieldWrapper title="비밀번호" require>
                   <Controller
                     control={control}
                     name="password"
@@ -235,9 +233,8 @@ export default function Signup({ onClose }: ModalPropsType) {
                       />
                     )}
                   />
-                </Stack>
-                <Stack gap={0.5}>
-                  <Typography variant="bodySS">비밀번호 확인</Typography>
+                </FormFieldWrapper>
+                <FormFieldWrapper title="비밀번호 확인" require>
                   <Controller
                     control={control}
                     name="passwordVerify"
@@ -251,9 +248,8 @@ export default function Signup({ onClose }: ModalPropsType) {
                       />
                     )}
                   />
-                </Stack>
-                <Stack gap={0.5}>
-                  <Typography variant="bodySS">닉네임</Typography>
+                </FormFieldWrapper>
+                <FormFieldWrapper title="닉네임" require>
                   <Controller
                     control={control}
                     name="nickname"
@@ -266,7 +262,7 @@ export default function Signup({ onClose }: ModalPropsType) {
                       />
                     )}
                   />
-                </Stack>
+                </FormFieldWrapper>
               </Stack>
             </Collapse>
           </Stack>
@@ -274,12 +270,13 @@ export default function Signup({ onClose }: ModalPropsType) {
             <Button
               variant="text"
               type="button"
+              size="small"
               fullWidth
               onClick={handleCancel}
             >
               취소
             </Button>
-            <Button fullWidth type="submit" disabled={!isValid}>
+            <Button fullWidth type="submit" size="small" disabled={!isValid}>
               회원가입
             </Button>
           </Stack>
