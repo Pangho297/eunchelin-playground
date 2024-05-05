@@ -65,7 +65,9 @@ export default function Select({
         displayEmpty
         renderValue={(selected) =>
           rest.value.length === 0 && placeholder ? (
-            <Typography variant="bodySS">{placeholder}</Typography>
+            <Typography variant="bodySS" sx={{ color: "grey.200" }}>
+              {placeholder}
+            </Typography>
           ) : (
             <Typography variant="bodySS">
               {findLabels(items, selected).join(", ")}

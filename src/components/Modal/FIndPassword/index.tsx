@@ -8,6 +8,7 @@ import Input from "@/components/Input";
 import useModal from "@/hooks/useModal";
 import Login from "../Login";
 import { useSnackbar } from "notistack";
+import FormFieldWrapper from "@/components/FormFieldWrapper";
 
 export default function FindPassword({ onClose }: ModalPropsType) {
   const { openModal } = useModal();
@@ -68,8 +69,7 @@ export default function FindPassword({ onClose }: ModalPropsType) {
               우리끼리 맛집 공유
             </Typography>
           </Stack>
-          <Stack gap={0.5}>
-            <Typography variant="bodySS">이메일</Typography>
+          <FormFieldWrapper title="이메일" require>
             <Controller
               control={control}
               name="email"
@@ -82,17 +82,18 @@ export default function FindPassword({ onClose }: ModalPropsType) {
                 />
               )}
             />
-          </Stack>
+          </FormFieldWrapper>
           <Stack direction="row" gap={1}>
             <Button
               variant="text"
               type="button"
+              size="small"
               fullWidth
               onClick={handleCancel}
             >
               취소
             </Button>
-            <Button type="submit" fullWidth disabled={!isValid}>
+            <Button type="submit" size="small" fullWidth disabled={!isValid}>
               비밀번호 재설정
             </Button>
           </Stack>

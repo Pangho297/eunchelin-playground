@@ -27,10 +27,10 @@ export default function ConfirmModal({
   const Footer = () => {
     return (
       <S.ModalFooter>
-        <Button variant="text" onClick={onClose} fullWidth>
+        <Button variant="text" size="small" onClick={onClose} fullWidth>
           {closeText}
         </Button>
-        <Button color="primary" onClick={onSubmit} fullWidth>
+        <Button color="primary" size="small" onClick={onSubmit} fullWidth>
           {submitText}
         </Button>
       </S.ModalFooter>
