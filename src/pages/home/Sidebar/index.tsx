@@ -91,6 +91,7 @@ export default function Sidebar() {
         {dummyRow.map((item) => (
           <Stack
             key={item.id}
+            gap={0.25}
             sx={{
               position: "relative",
               p: 2,
@@ -99,6 +100,9 @@ export default function Sidebar() {
             }}
           >
             <Typography variant="h4">{item.name}</Typography>
+            <Typography variant="bodySS" sx={{ color: "grey.400" }}>
+              {item.address}
+            </Typography>
             <Stack direction="row" gap={1}>
               {item.menu.map((menu, i) => (
                 <Chip
