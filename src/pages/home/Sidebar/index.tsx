@@ -4,7 +4,14 @@ import Input from "@/components/Input";
 import Select from "@/components/Select";
 import useOnChange from "@/hooks/useOnChange";
 import { Nullable } from "@/types/common";
-import { Button, Chip, IconButton, Stack, Typography } from "@mui/material";
+import {
+  Button,
+  ButtonBase,
+  Chip,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import dayjs, { Dayjs } from "dayjs";
 import { dummyRow, EXAMPLE_DROPDOWN } from "./SIdebar.data";
 import MdiIcon from "@/components/MdiIcon";
@@ -145,6 +152,7 @@ export default function Sidebar() {
           </Stack>
         ))}
       </Stack>
+      <Button color="secondary">맛집 등록하기</Button>
     </Stack>
   );
 }
