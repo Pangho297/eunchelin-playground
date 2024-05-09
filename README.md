@@ -11,3 +11,5 @@ npm run lint
 # .env.local 프로젝트 실행
 npm run dev
 ```
+## 배포주소
+[은슐랭: 우리끼리 맛집 공유 서비스](https://eunchelin-playground.vercel.app/)
