@@ -1,42 +1,54 @@
-import * as K from "react-kakao-maps-sdk";
 import * as S from "../playground.style";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Stack, Typography } from "@mui/material";
 import { Address, useDaumPostcodePopup } from "react-daum-postcode";
 import postcodeConfig from "@/utils/postcodeConfig";
 import MapWrapper from "@/components/MapWrapper";
 import Input from "@/components/Input";
+import { Map } from "@/components/KakaoMap";
+import { useReactiveVar } from "@apollo/client";
+import { mapVar } from "@/stores/mapStore";
 
 export default function PlaygroundMap() {
-  K.useKakaoLoader({
-    appkey: import.meta.env.VITE_KAKAO_JAVASCRIPT_KEY,
-    id: "test-kakao-map",
-    libraries: ["services"],
-  });
-
-  const mapRef = useRef<kakao.maps.Map>(null);
   const [center, setCenter] = useState<{
     lat: number;
     lng: number;
   }>();
-  const [level, setLevel] = useState(8);
   const open = useDaumPostcodePopup();
+  const map = useReactiveVar(mapVar);
 
   const handleClick = (pos: { lat: number; lng: number }) => {
-    setCenter(pos);
+    const { lat, lng } = pos;
+    if (!map) return;
+    map.panTo(new kakao.maps.LatLng(pos.lat, pos.lng));
+    setCenter({ lat, lng });
+  };
+
+  const handleZoom = (type: "zoom" | "zoomOut") => {
+    if (!map) return;
+    if (type === "zoom") {
+      const currentLevel = map.getLevel();
+      map.setLevel(currentLevel - 1);
+      return;
+    }
+
+    if (type === "zoomOut") {
+      const currentLevel = map.getLevel();
+      map.setLevel(currentLevel + 1);
+      return;
+    }
   };
 
   const onComplete = (address: Address) => {
+    if (!map) return;
     const geocoder = new kakao.maps.services.Geocoder();
     const keyword = address.address;
-
     geocoder.addressSearch(keyword, (result, status) => {
       if (status === kakao.maps.services.Status.OK) {
         const lat: number = parseFloat(result[0].y);
         const lng: number = parseFloat(result[0].x);
-
-        setCenter({ lat, lng });
-        setLevel(1);
+        map.panTo(new kakao.maps.LatLng(lat, lng));
+        map.setLevel(1);
       }
     });
   };
@@ -62,31 +74,9 @@ export default function PlaygroundMap() {
   return (
     <S.CollapseContainer gap={2}>
       <Stack sx={{ height: "800px" }}>
-        {center ? (
-          <MapWrapper>
-            <K.Map
-              ref={mapRef}
-              center={center}
-              style={{ width: "100%", height: "100%" }}
-              level={level}
-              onZoomChanged={(target) => {
-                const level = target.getLevel();
-                setLevel(level);
-              }}
-              isPanto
-            />
-          </MapWrapper>
-        ) : (
-          <Stack
-            justifyContent="center"
-            alignItems="center"
-            sx={{ height: "100%" }}
-          >
-            <Typography variant="h3" color="error">
-              위치 정보 제공을 허용해주세요!
-            </Typography>
-          </Stack>
-        )}
+        <MapWrapper>
+          <Map />
+        </MapWrapper>
       </Stack>
       <Stack direction="row" gap={1} sx={{ width: "100%" }}>
         <Stack sx={{ width: "100%" }} gap={0.5}>
@@ -138,18 +128,10 @@ export default function PlaygroundMap() {
         </Button>
       </Stack>
       <Stack direction="row" gap={2}>
-        <Button
-          fullWidth
-          color="success"
-          onClick={() => setLevel((prev) => prev - 1)}
-        >
+        <Button fullWidth color="success" onClick={() => handleZoom("zoom")}>
           확대
         </Button>
-        <Button
-          fullWidth
-          color="error"
-          onClick={() => setLevel((prev) => prev + 1)}
-        >
+        <Button fullWidth color="error" onClick={() => handleZoom("zoomOut")}>
           축소
         </Button>
       </Stack>

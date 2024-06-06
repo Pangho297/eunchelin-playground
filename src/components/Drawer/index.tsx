@@ -30,7 +30,6 @@ export default function Drawer({
     <S.DrawerBox {...{ height, open, dir }}>
       <S.DrawerWrapper>
         <S.CustomDrawer
-          className="test"
           variant="permanent"
           open={open}
           swipeAreaWidth={bleedingWidth.current}
@@ -45,7 +44,9 @@ export default function Drawer({
           {open ? children : null}
         </S.CustomDrawer>
         <S.SwipeButton
-          onClick={toggle}
+          onClick={() => {
+            toggle();
+          }}
           bleedingWidth={bleedingWidth.current}
           dir={dir}
         >
