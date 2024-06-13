@@ -42,10 +42,11 @@ const dirRight = {
   }),
   button: (theme: Theme, bleedingWidth: number) => ({
     width: bleedingWidth,
-    height: 100,
+    height: 50,
     borderRadius: `${theme.spacing(1)} 0 0 ${theme.spacing(1)}`,
     left: -bleedingWidth,
-    top: "calc(50% - 76px)",
+    top: "calc(50%)",
+    transform: "translateY(-50%)",
     svg: {
       transform: "rotate(180deg)",
     },

@@ -4,6 +4,8 @@ import Drawer from "@/components/Drawer";
 import MapWrapper from "@/components/MapWrapper";
 import Sidebar from "./Sidebar";
 import { Map } from "@/components/KakaoMap";
+import MyPage from "./MyPage";
+import * as S from "./home.style";
 
 export default function Home() {
   return (
@@ -25,20 +27,22 @@ export default function Home() {
       >
         <MapWrapper width="100%" height="calc(100dvh - 88px)">
           <Map />
-          <Stack sx={{ position: "absolute", top: 0, left: 0, height: "100%" }}>
+          <S.DrawerPosition sx={{ left: 0 }}>
             <Drawer height="100%">
-              <Stack
-                sx={{
-                  width: "100%",
-                  height: "100%",
-                  bgcolor: "common.white",
-                  p: 2,
-                }}
-              >
+              <S.DrawerWrapper>
                 <Sidebar />
-              </Stack>
+              </S.DrawerWrapper>
             </Drawer>
-          </Stack>
+          </S.DrawerPosition>
+          {true && (
+            <S.DrawerPosition sx={{ right: 0 }}>
+              <Drawer width={300} height="100%" dir="right" defaultOpen={false}>
+                <S.DrawerWrapper>
+                  <MyPage />
+                </S.DrawerWrapper>
+              </Drawer>
+            </S.DrawerPosition>
+          )}
         </MapWrapper>
       </Stack>
     </Stack>

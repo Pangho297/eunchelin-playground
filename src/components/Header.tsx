@@ -49,16 +49,7 @@ export default function Header({ children }: { children: ReactNode }) {
           <Button onClick={() => navigate("/playground")}>
             Go to Playground
           </Button>
-          {token ? (
-            <Stack direction="row" gap={2}>
-              <Link>
-                <Typography>내 그룹</Typography>
-              </Link>
-              <Link>
-                <Typography>FIXME: 계정이름</Typography>
-              </Link>
-            </Stack>
-          ) : (
+          {token ? null : (
             <Button onClick={() => openModal(Login)}>로그인</Button>
           )}
         </Stack>
